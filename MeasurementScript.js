@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         MeasurementScript
 // @namespace    http://tampermonkey.net/
 // @version      2024-02-22
-// @description  try to take over the world!
+// @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        http://*/*
 // @grant        none
