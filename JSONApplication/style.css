@@ -5,6 +5,9 @@ header{
     text-align: center;
     margin: 4vh;
 }
+#orangecircle{
+    width: 6vh;
+}
 #output{
     display: grid;
     grid-template-columns: 0.75fr 1fr 0.75fr;
