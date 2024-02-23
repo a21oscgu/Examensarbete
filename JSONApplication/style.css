@@ -7,14 +7,14 @@ header{
     text-align: center;
     margin: 4vh;
 }
-#newsheader{
-    grid-column: 2;
-}
 #orangecircle{
-    grid-column: 3;
+    grid-column: 2;
     justify-self: center;
     align-self: center;
     width: 6vh;
+}
+#newsheader{
+    grid-column: 3;
 }
 #output{
     display: grid;
