@@ -1,8 +1,18 @@
 {
-    "article": {
-    "headline": "Empty title",
-    "author": "Empty author",
-    "publication_date": "2024-02-23",
-    "content": "Empty document"
+    "articles": {
+        "article": [
+            {
+                "headline": "Empty title",
+                "author": "Empty author",
+                "publication_date": "2024-02-23",
+                "content": "Empty document"
+            },
+            {
+                "headline": "Empty title",
+                "author": "Empty author",
+                "publication_date": "2024-02-23",
+                "content": "Empty document"
+            }
+        ]
     }
 }
