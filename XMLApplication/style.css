@@ -2,6 +2,17 @@ body{
     margin: 0;
 }
 header{
+    display: grid;
+    grid-template-columns: 0.75fr 0.5fr 0.5fr 0.75fr;
     text-align: center;
     margin: 4vh;
+}
+#newsheader{
+    grid-column: 2;
+}
+#greencircle{
+    grid-column: 3;
+    justify-self: center;
+    align-self: center;
+    width: 6vh;
 }
