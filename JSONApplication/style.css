@@ -1,6 +1,10 @@
 body{
     margin: 0;
 }
+header{
+    text-align: center;
+    margin: 4vh;
+}
 #output{
     display: grid;
     grid-template-columns: 0.75fr 1fr 0.75fr;
