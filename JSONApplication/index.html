@@ -56,11 +56,12 @@
                 heading.textContent = 'Parsed JSON Data:';
                 outputDiv.appendChild(heading);
 
+                const articleData = data.article; // Access the nested object
                 const ul = document.createElement('ul');
-                for (const key in data) {
-                    if (Object.hasOwnProperty.call(data, key)) {
+                for (const key in articleData) {
+                    if (Object.hasOwnProperty.call(articleData, key)) {
                     const li = document.createElement('li');
-                    li.textContent = `${key}: ${data[key]}`;
+                    li.textContent = `${key}: ${articleData[key]}`;
                     ul.appendChild(li);
                     }
                 }
