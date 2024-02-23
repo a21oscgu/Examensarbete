@@ -1,4 +1,10 @@
+#output{
+    display: grid;
+    grid-template-columns: 0.75fr 1fr 0.75fr;
+}
+/*Articles*/
 .article-container {
+    grid-column: 2;
     background-color: #ffd96f;
     padding: 20px;
     margin-bottom: 20px;
