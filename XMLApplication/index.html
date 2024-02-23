@@ -27,8 +27,7 @@
         </header>
         <!-- 3. Article -->
         <article>
-            <section>
-                Empty
+            <section id="output">
             </section>
             <section>
             </section>
@@ -39,5 +38,47 @@
         <footer>
         </footer>
         <!-- 5. Javascript  -->
+        <script>
+            // URL of the XML file
+            const xmlUrl = 'https://oscarswebsite.se/Examensarbete/Data/smalldata.xml';
+
+            // Fetch the XML data
+            fetch(xmlUrl)
+                .then(response => response.text())
+                .then(xmlText => {
+                    // Parse the XML data
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+                    // Call function to handle XML data
+                    handleXmlData(xmlDoc);
+                })
+                .catch(error => {
+                    console.error('Error fetching XML:', error);
+                });
+                function handleXmlData(xmlDoc) {
+                    // Access XML elements and attributes as needed
+                    const articles = xmlDoc.getElementsByTagName('article');
+                    const outputDiv = document.getElementById('output');
+
+                    // Display articles
+                    for (let i = 0; i < articles.length; i++) {
+                        const article = articles[i];
+                        const headline = article.getElementsByTagName('headline')[0].textContent;
+                        const author = article.getElementsByTagName('author')[0].textContent;
+                        const publicationDate = article.getElementsByTagName('publication_date')[0].textContent;
+                        const content = article.getElementsByTagName('content')[0].textContent;
+
+                        const articleInfo = document.createElement('div');
+                        articleInfo.innerHTML = `
+                            <h2>${headline}</h2>
+                            <p>Author: ${author}</p>
+                            <p>Publication Date: ${publicationDate}</p>
+                            <p>${content}</p>
+                        `;
+                        outputDiv.appendChild(articleInfo);
+                    }
+                }
+        </script>
     </body>
 </html>
