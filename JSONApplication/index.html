@@ -54,6 +54,7 @@
                 // Loop through each article and create elements to display them
                 data.articles.article.forEach(articleData => {
                     const articleContainer = document.createElement('div');
+                    articleContainer.classList.add('article-container'); // Add a class for styling
 
                     const headline = document.createElement('h2');
                     headline.textContent = articleData.headline;
