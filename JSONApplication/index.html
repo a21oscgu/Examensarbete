@@ -51,16 +51,24 @@
                 const outputDiv = document.getElementById('output');
                 outputDiv.innerHTML = '';
 
+                // Create and append new elements to display the parsed data
                 const articleData = data.article; // Access the nested object
-                const ul = document.createElement('ul');
-                for (const key in articleData) {
-                    if (Object.hasOwnProperty.call(articleData, key)) {
-                    const li = document.createElement('li');
-                    li.textContent = `${articleData[key]}`;
-                    ul.appendChild(li);
-                    }
-                }
-                outputDiv.appendChild(ul);
+                const headline = document.createElement('h2');
+                headline.textContent = articleData.headline;
+
+                const author = document.createElement('p');
+                author.textContent = 'By ' + articleData.author;
+
+                const publicationDate = document.createElement('p');
+                publicationDate.textContent = 'Published on ' + articleData.publication_date;
+
+                const content = document.createElement('p');
+                content.textContent = articleData.content;
+
+                outputDiv.appendChild(headline);
+                outputDiv.appendChild(author);
+                outputDiv.appendChild(publicationDate);
+                outputDiv.appendChild(content);
             }
         </script>
     </body>
