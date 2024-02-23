@@ -51,11 +51,6 @@
                 const outputDiv = document.getElementById('output');
                 outputDiv.innerHTML = '';
 
-                // Create and append new elements to display the parsed data
-                const heading = document.createElement('h2');
-                heading.textContent = 'Parsed JSON Data:';
-                outputDiv.appendChild(heading);
-
                 const articleData = data.article; // Access the nested object
                 const ul = document.createElement('ul');
                 for (const key in articleData) {
