@@ -51,24 +51,29 @@
                 const outputDiv = document.getElementById('output');
                 outputDiv.innerHTML = '';
 
-                // Create and append new elements to display the parsed data
-                const articleData = data.article; // Access the nested object
-                const headline = document.createElement('h2');
-                headline.textContent = articleData.headline;
+                // Loop through each article and create elements to display them
+                data.articles.article.forEach(articleData => {
+                    const articleContainer = document.createElement('div');
 
-                const author = document.createElement('p');
-                author.textContent = 'By ' + articleData.author;
+                    const headline = document.createElement('h2');
+                    headline.textContent = articleData.headline;
 
-                const publicationDate = document.createElement('p');
-                publicationDate.textContent = 'Published on ' + articleData.publication_date;
+                    const author = document.createElement('p');
+                    author.textContent = 'By ' + articleData.author;
 
-                const content = document.createElement('p');
-                content.textContent = articleData.content;
+                    const publicationDate = document.createElement('p');
+                    publicationDate.textContent = 'Published on ' + articleData.publication_date;
 
-                outputDiv.appendChild(headline);
-                outputDiv.appendChild(author);
-                outputDiv.appendChild(publicationDate);
-                outputDiv.appendChild(content);
+                    const content = document.createElement('p');
+                    content.textContent = articleData.content;
+
+                    articleContainer.appendChild(headline);
+                    articleContainer.appendChild(author);
+                    articleContainer.appendChild(publicationDate);
+                    articleContainer.appendChild(content);
+
+                    outputDiv.appendChild(articleContainer);
+                });
             }
         </script>
     </body>
