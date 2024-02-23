@@ -70,6 +70,7 @@
                         const content = article.getElementsByTagName('content')[0].textContent;
 
                         const articleInfo = document.createElement('div');
+                        articleInfo.classList.add('article-container');
                         articleInfo.innerHTML = `
                             <h2>${headline}</h2>
                             <p>By: ${author}</p>

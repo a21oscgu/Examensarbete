@@ -16,3 +16,28 @@ header{
     align-self: center;
     width: 6vh;
 }
+#output{
+    display: grid;
+    grid-template-columns: 0.75fr 1fr 0.75fr;
+}
+/*Articles*/
+.article-container {
+    grid-column: 2;
+    background-color: #ffd96f;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article-container h2 {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.article-container p {
+    color: black;
+    font-size: 16px;
+    line-height: 1.6;
+}
