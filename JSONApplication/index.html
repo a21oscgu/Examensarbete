@@ -37,5 +37,16 @@
         <footer>
         </footer>
         <!-- 5. Javascript  -->
+        <script>
+            fetch('https://oscarswebsite.se/Examensarbete/Data/smalldata.json')
+                .then(response => response.json())
+                .then(data => {
+                // Use the loaded JSON data here
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+            });
+        </script>
     </body>
 </html>
