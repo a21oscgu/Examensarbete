@@ -18,17 +18,19 @@
     // Get the seed value from storage or initialize to 0 if not set
     var seed = GM_getValue('seed', 0);
 
-    // Store the seed value
-    GM_setValue('seed',seed);
-    // Use the seed to set randomization
-    Math.setSeed(seed);
-    //console.log("seed="+ seed);
-
     let allText = '';
 
     // Loop to generate code (works up to around 700)
     for(let i=0;i<1;i++){
         console.log("Iteration: " + (i + 1));
+
+        /*Set seed*/
+        seed++;
+        // Store the seed value
+        GM_setValue('seed',seed);
+        // Use the seed to set randomization
+        Math.setSeed(seed);
+        console.log("seed="+ seed);
 
         /*Code to generate data in form of JSON*/
         var textArea = document.getElementById("output");
@@ -52,26 +54,28 @@
         var date = day + "-" + month + "-" + year;
 
         //Generate content
-        var j = Math.floor(Math.random() * 10);
-        if (j > 20) {
-            j = 20;
-        }
-        var generatedSentences = []; // Array to store generated sentences
-        for (var k = 0; k < j; k++) {
+        var wordCount = 0;
+        var minWordCount = 250;
+        var maxWordCount = 500;
+        var generatedSentences = [];
+
+        while (wordCount < minWordCount) {
             var content = generate_sentence();
-            generatedSentences.push(content); // Add generated sentence to the array
+            var words = content.split(' ');
+            if (wordCount + words.length <= maxWordCount) {
+                generatedSentences.push(content);
+                wordCount += words.length;
+            } else {
+                break;
+            }
         }
-        // Join the generated sentences into a single string
-        var allContent = generatedSentences.join("");
+
+        var allContent = generatedSentences.join(" ");
 
         // Append the content to the existing content in the textarea
         allText += '{"headline":"' + headline + '","author": "' + author + '","publication_date": "' + date + '","content": "' + allContent + '"},';
-
-        // Reset seed after 5 iterations
-        if (i === 4) {
-            GM_setValue("seed", 0);
-        }
     }
+    GM_setValue("seed", 0);
     // Place accumulated data inside the textarea
-    textArea.value += '{"articles": {"article": [' + allText + ']}}';
+    textArea.value = '{"articles": {"article": [' + allText + ']}}';
 })();
