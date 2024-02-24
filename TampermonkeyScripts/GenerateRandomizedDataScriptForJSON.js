@@ -27,7 +27,7 @@
     // Loop to generate code
     for(let i=0;i<5;i++){
 
-        /*Code to generate text*/
+        /*Code to generate data in form of JSON*/
         var textArea = document.getElementById("output");
         var headline = generate_sentence();
         var author = generate_sentence();
@@ -39,8 +39,6 @@
 
         var content = generate_sentence();
         textArea.value = '{"articles": {"article": [{"headline":"' + headline + '","author": "' + author + '","publication_date": "' + date + '","content": "' + content + '"},]}}';
-
-
 
         // Reset seed after 5 iterations
         if (i === 4) {

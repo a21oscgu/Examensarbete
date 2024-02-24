@@ -26,7 +26,10 @@
 
     // Loop to generate code
     for(let i=0;i<5;i++){
-        console.log("Code should be generated here, now.");
+        /*Code to generate data in form of XML*/
+
+        
+
         // Reset seed after 5 iterations
         if (i === 4) {
             GM_setValue("seed", 0);
