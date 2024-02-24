@@ -26,7 +26,11 @@
 
     // Loop to generate code
     for(let i=0;i<5;i++){
-        console.log("Code should be generated here, now.");
+
+        /*Code to generate title*/
+        var textArea = document.getElementById("output");
+        textArea.value = '{"articles": {"article": [{"headline":"' + generate_sentence() + '","author": "' + generate_sentence() + '","publication_date": "' + generate_sentence() + '","content": "' + generate_sentence() + '"},{"headline": "' + generate_sentence() + '","author": "' + generate_sentence() + '","publication_date": "' + generate_sentence() + '","content": "' + generate_sentence() + '"}]}}';
+
         // Reset seed after 5 iterations
         if (i === 4) {
             GM_setValue("seed", 0);
