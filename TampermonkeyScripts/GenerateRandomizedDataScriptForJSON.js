@@ -27,9 +27,20 @@
     // Loop to generate code
     for(let i=0;i<5;i++){
 
-        /*Code to generate title*/
+        /*Code to generate text*/
         var textArea = document.getElementById("output");
-        textArea.value = '{"articles": {"article": [{"headline":"' + generate_sentence() + '","author": "' + generate_sentence() + '","publication_date": "' + generate_sentence() + '","content": "' + generate_sentence() + '"},{"headline": "' + generate_sentence() + '","author": "' + generate_sentence() + '","publication_date": "' + generate_sentence() + '","content": "' + generate_sentence() + '"}]}}';
+        var headline = generate_sentence();
+        var author = generate_sentence();
+
+        let day = Math.floor(Math.random()*31) + 1;
+        let month = Math.floor(Math.random() * 12) + 1;
+        const year = Math.floor(Math.random() * (2025 - 2000)) + 2000;
+        var date = day + "-" + month + "-" + year;
+
+        var content = generate_sentence();
+        textArea.value = '{"articles": {"article": [{"headline":"' + headline + '","author": "' + author + '","publication_date": "' + date + '","content": "' + content + '"},]}}';
+
+
 
         // Reset seed after 5 iterations
         if (i === 4) {
