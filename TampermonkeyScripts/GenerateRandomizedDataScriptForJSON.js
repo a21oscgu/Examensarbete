@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         GenerateRandomizedDataScript
+// @name         GenerateRandomizedDataScriptForJSON
 // @namespace    http://tampermonkey.net/
 // @version      2024-02-24
 // @description  Generate Randomized Data in JSON
