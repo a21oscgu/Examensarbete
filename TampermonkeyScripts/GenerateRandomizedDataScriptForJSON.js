@@ -24,12 +24,15 @@
     Math.setSeed(seed);
     //console.log("seed="+ seed);
 
+    let allText = '';
+
     // Loop to generate code
     for(let i=0;i<5;i++){
+        console.log("Iteration: " + (i + 1));
 
         /*Code to generate data in form of JSON*/
         var textArea = document.getElementById("output");
-        
+
         //Generate headline
         var headline = generate_sentence();
 
@@ -41,7 +44,7 @@
         let randomFirstName = firstNames[randomFirstNameIndex];
         let randomLastName = lastNames[randomLastNameIndex];
         let author = randomFirstName + " " + randomLastName;
-        
+
         //Generate date
         let day = Math.floor(Math.random()*31) + 1;
         let month = Math.floor(Math.random() * 12) + 1;
@@ -59,14 +62,16 @@
             generatedSentences.push(content); // Add generated sentence to the array
         }
         // Join the generated sentences into a single string
-        var allContent = generatedSentences.join(" ");
-        
-        //Place generated data inside the textarea
-        textArea.value = '{"articles": {"article": [{"headline":"' + headline + '","author": "' + author + '","publication_date": "' + date + '","content": "' + allContent + '"},]}}';
+        var allContent = generatedSentences.join("");
+
+        // Append the content to the existing content in the textarea
+        allText += '{"headline":"' + headline + '","author": "' + author + '","publication_date": "' + date + '","content": "' + allContent + '"},';
 
         // Reset seed after 5 iterations
         if (i === 4) {
             GM_setValue("seed", 0);
         }
     }
+    // Place accumulated data inside the textarea
+    textArea.value += '{"articles": {"article": [' + allText + ']}}';
 })();
