@@ -20,7 +20,7 @@
 
     let allText = '';
 
-    // Loop to generate code (works up to around 700)
+    // Loop to generate code
     for(let i=0;i<1;i++){
         console.log("Iteration: " + (i + 1));
 
