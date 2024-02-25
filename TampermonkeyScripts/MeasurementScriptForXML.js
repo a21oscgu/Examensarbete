@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for XML
 // @namespace    http://tampermonkey.net/
-// @version      2024-02-24
+// @version      2024-02-25
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        https://oscarswebsite.se/Examensarbete/XMLApplication/
