@@ -2,13 +2,13 @@ import matplotlib.pyplot as plt
 import json
 
 # Define the data files
-files = ["data_7xml.json", "data_2000xml.json", "data_7json.json", "data_2000json.json"]
+files = ["data_7xml.json", "data_7json.json"]
 
 # Create a figure and axis for the plot
 fig, ax = plt.subplots()
 
-fileColors = ["#3e8a43", "#3e8a43", "#968041", "#968041"]
-fileLabels = ["7 articles (XML)", "2000 articles (XML)", "7 articles (JSON)", "2000 articles (JSON)"]
+fileColors = ["#3e8a43", "#968041"]
+fileLabels = ["XML", "JSON"]
 
 # Loop through each file and plot data for all two datafiles on the same plot
 for i, file in enumerate(files):
@@ -19,7 +19,7 @@ for i, file in enumerate(files):
 
 ax.set_xlabel('Run')
 ax.set_ylabel('Load time')
-ax.set_title('Search data')
+ax.set_title('Measurements on 7 articles')
 n = 25
 plt.xticks(range(0, len(xAxis), n), xAxis[::n], rotation=90)
 ax.grid(True)
