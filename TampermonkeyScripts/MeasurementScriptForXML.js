@@ -15,6 +15,9 @@
     // Array to store loading times
     var loadingTimes = [];
 
+    // Counter to keep track of completed measurements
+    var measurementsCompleted = 0;
+
     // Function to measure page loading time and log to console
     function measurePageLoad() {
         // Measure time taken for XML parsing
@@ -26,6 +29,15 @@
             var parsingTime = endTime - startTime;
             console.log("Time taken to parse XML data: " + parsingTime + " milliseconds");
             loadingTimes.push(parsingTime);
+            
+            // Increment the counter
+            measurementsCompleted++;
+            
+            // Check if all measurements are completed
+            if (measurementsCompleted === 1000) {
+                saveToJSON(); // Call saveToJSON function
+            }
+            
             return result;
         };
     }
@@ -44,6 +56,4 @@
         var blob = new Blob([data], { type: "application/json" });
         saveAs(blob, fileName);
     }
-    // Call saveToJSON function after all measurements are done
-    setTimeout(saveToJSON, 10000); // Assuming all measurements are done within 10 seconds
 })();
