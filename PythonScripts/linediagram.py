@@ -2,13 +2,13 @@ import matplotlib.pyplot as plt
 import json
 
 # Define the data files
-files = ["data_7xml.json", "data_2000xml.json"]
+files = ["data_7xml.json", "data_2000xml.json", "data_7json.json", "data_2000json.json"]
 
 # Create a figure and axis for the plot
 fig, ax = plt.subplots()
 
-fileColors = ["#4953f8", "#34c242"]
-fileLabels = ["7 articles (XML)", "2000 articles (XML)"]
+fileColors = ["#3e8a43", "#3e8a43", "#968041", "#968041"]
+fileLabels = ["7 articles (XML)", "2000 articles (XML)", "7 articles (JSON)", "2000 articles (JSON)"]
 
 # Loop through each file and plot data for all two datafiles on the same plot
 for i, file in enumerate(files):
