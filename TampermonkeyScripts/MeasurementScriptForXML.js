@@ -37,9 +37,12 @@
 
     // Save loading times to JSON file
     function saveToJSON() {
-        var data = JSON.stringify(loadingTimes, null, "\t"); // The data comes from the array and is placed in the variable called "data"
+        var currentDate = new Date();
+        var currentTimeString = currentDate.toTimeString().slice(0,8); // Get current time in HH_MM_SS format
+        var fileName = "data_" + currentTimeString + ".json"; // Construct the file name with the date
+        var data = JSON.stringify(loadingTimes, null, "\t");
         var blob = new Blob([data], { type: "application/json" });
-        saveAs(blob, "data.json");
+        saveAs(blob, fileName);
     }
     // Call saveToJSON function after all measurements are done
     setTimeout(saveToJSON, 10000); // Assuming all measurements are done within 10 seconds
