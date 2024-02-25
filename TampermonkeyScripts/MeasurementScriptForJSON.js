@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for JSON
 // @namespace    http://tampermonkey.net/
-// @version      2024-02-24
+// @version      2024-02-25
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        https://oscarswebsite.se/Examensarbete/JSONApplication/
@@ -19,18 +19,23 @@
     var measurementsCompleted = 0;
 
     // Function to measure page loading time and log to console
-    function measurePageLoad() {
+    function measureJSONParsing() {
+        // Measure time taken for JSON parsing
         var startTime = performance.now(); // Record start time
         fetch('https://oscarswebsite.se/Examensarbete/Data/smalldata.json')
-            .then(response => response.json())
-            .then(data => {
+            .then(response => response.text()) // Get JSON text
+            .then(jsonText => {
+                // Now parse the JSON text
+                var data = JSON.parse(jsonText);
                 var endTime = performance.now(); // Record end time
-                var loadingTime = endTime - startTime; // Calculate loading time
-                loadingTimes.push(loadingTime); // Store loading time
-                console.log('Page loaded in ' + loadingTime + ' milliseconds');
+                var parsingTime = endTime - startTime; // Calculate parsing time
+                console.log('Time taken to parse JSON data: ' + parsingTime + ' milliseconds');
 
-                // Use the loaded JSON data here
+                // Use the parsed JSON data here
                 displayData(data);
+
+                // Record parsing time
+                loadingTimes.push(parsingTime);
 
                 // Increment the counter
                 measurementsCompleted++;
@@ -41,7 +46,7 @@
                 }
             })
             .catch(error => {
-                console.error('Error fetching JSON:', error);
+                console.error('Error fetching or parsing JSON:', error);
 
                 // Increment the counter even if there's an error
                 measurementsCompleted++;
@@ -55,7 +60,7 @@
 
     // Measure page load time 1000 times
     for (var i = 0; i < 1000; i++) {
-        measurePageLoad();
+        measureJSONParsing();
     }
 
     // Save loading times to JSON file
@@ -63,12 +68,12 @@
         var currentDate = new Date();
         var currentTimeString = currentDate.toTimeString().slice(0, 8); // Get current time in HH_MM_SS format
         var fileName = "data_" + currentTimeString + ".json"; // Construct the file name with the date
-        
+
         var indexedLoadingTimes = {};
         for (var i = 0; i < loadingTimes.length; i++) {
             indexedLoadingTimes[(i + 1).toString()] = loadingTimes[i];
         }
-        
+
         var data = JSON.stringify(indexedLoadingTimes, null, "\t");
         var blob = new Blob([data], { type: "application/json" });
         saveAs(blob, fileName);

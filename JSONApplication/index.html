@@ -39,44 +39,41 @@
         </footer>
         <!-- 5. Javascript  -->
         <script>
-            fetch('https://oscarswebsite.se/Examensarbete/Data/smalldata.json')
-                .then(response => response.json())
-                .then(data => {
-                // Use the loaded JSON data here
-                displayData(data);
-            })
-            .catch(error => {
-                console.error('Error fetching JSON:', error);
-            });
             function displayData(data) {
                 // Clear any previous content in the output element
                 const outputDiv = document.getElementById('output');
                 outputDiv.innerHTML = '';
 
-                // Loop through each article and create elements to display them
-                data.articles.article.forEach(articleData => {
-                    const articleContainer = document.createElement('div');
-                    articleContainer.classList.add('article-container'); // Add a class for styling
+                // Check if the data contains articles
+                if (data && data.articles && Array.isArray(data.articles.article)) {
+                    // Loop through each article and create elements to display them
+                    data.articles.article.forEach(articleData => {
+                        const articleContainer = document.createElement('div');
+                        articleContainer.classList.add('article-container'); // Add a class for styling
 
-                    const headline = document.createElement('h2');
-                    headline.textContent = articleData.headline;
+                        const headline = document.createElement('h2');
+                        headline.textContent = articleData.headline;
 
-                    const author = document.createElement('p');
-                    author.textContent = 'By: ' + articleData.author;
+                        const author = document.createElement('p');
+                        author.textContent = 'By: ' + articleData.author;
 
-                    const publicationDate = document.createElement('p');
-                    publicationDate.textContent = 'Publication date: ' + articleData.publication_date;
+                        const publicationDate = document.createElement('p');
+                        publicationDate.textContent = 'Publication date: ' + articleData.publication_date;
 
-                    const content = document.createElement('p');
-                    content.textContent = articleData.content;
+                        const content = document.createElement('p');
+                        content.textContent = articleData.content;
 
-                    articleContainer.appendChild(headline);
-                    articleContainer.appendChild(author);
-                    articleContainer.appendChild(publicationDate);
-                    articleContainer.appendChild(content);
+                        articleContainer.appendChild(headline);
+                        articleContainer.appendChild(author);
+                        articleContainer.appendChild(publicationDate);
+                        articleContainer.appendChild(content);
 
-                    outputDiv.appendChild(articleContainer);
-                });
+                        outputDiv.appendChild(articleContainer);
+                    });
+                } else {
+                    // If no articles are found or the structure is incorrect, display a message
+                    outputDiv.textContent = 'No articles found.';
+                }
             }
         </script>
     </body>
