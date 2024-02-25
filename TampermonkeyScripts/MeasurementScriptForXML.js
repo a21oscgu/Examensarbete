@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         MeasurementScript XML
+// @name         MeasurementScript for XML
 // @namespace    http://tampermonkey.net/
 // @version      2024-02-24
 // @description  Page Loading Speed Measurement Script with JSON Logging
