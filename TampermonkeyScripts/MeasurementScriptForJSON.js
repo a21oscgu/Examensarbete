@@ -61,9 +61,15 @@
     // Save loading times to JSON file
     function saveToJSON() {
         var currentDate = new Date();
-        var currentTimeString = currentDate.toTimeString().slice(0,8); // Get current time in HH_MM_SS format
+        var currentTimeString = currentDate.toTimeString().slice(0, 8); // Get current time in HH_MM_SS format
         var fileName = "data_" + currentTimeString + ".json"; // Construct the file name with the date
-        var data = JSON.stringify(loadingTimes, null, "\t");
+        
+        var indexedLoadingTimes = {};
+        for (var i = 0; i < loadingTimes.length; i++) {
+            indexedLoadingTimes[(i + 1).toString()] = loadingTimes[i];
+        }
+        
+        var data = JSON.stringify(indexedLoadingTimes, null, "\t");
         var blob = new Blob([data], { type: "application/json" });
         saveAs(blob, fileName);
     }
