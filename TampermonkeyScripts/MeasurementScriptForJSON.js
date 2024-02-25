@@ -15,9 +15,42 @@
     // Array to store loading times
     var loadingTimes = [];
 
+    // Counter to keep track of completed measurements
+    var measurementsCompleted = 0;
+
     // Function to measure page loading time and log to console
     function measurePageLoad() {
-        //DOES NOT WORK AT THE MOMENT
+        var startTime = performance.now(); // Record start time
+        fetch('https://oscarswebsite.se/Examensarbete/Data/smalldata.json')
+            .then(response => response.json())
+            .then(data => {
+                var endTime = performance.now(); // Record end time
+                var loadingTime = endTime - startTime; // Calculate loading time
+                loadingTimes.push(loadingTime); // Store loading time
+                console.log('Page loaded in ' + loadingTime + ' milliseconds');
+
+                // Use the loaded JSON data here
+                displayData(data);
+
+                // Increment the counter
+                measurementsCompleted++;
+
+                // Check if all measurements are completed
+                if (measurementsCompleted === 1000) {
+                    saveToJSON(); // Call saveToJSON function
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+
+                // Increment the counter even if there's an error
+                measurementsCompleted++;
+
+                // Check if all measurements are completed
+                if (measurementsCompleted === 1000) {
+                    saveToJSON(); // Call saveToJSON function
+                }
+            });
     }
 
     // Measure page load time 1000 times
@@ -34,6 +67,4 @@
         var blob = new Blob([data], { type: "application/json" });
         saveAs(blob, fileName);
     }
-    // Call saveToJSON function after all measurements are done
-    setTimeout(saveToJSON, 10000); // Assuming all measurements are done within 10 seconds
 })();
