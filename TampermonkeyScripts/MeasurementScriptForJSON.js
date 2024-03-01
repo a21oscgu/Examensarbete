@@ -60,7 +60,7 @@
 
     // Measure page load time 1000 times
     for (var i = 0; i < 1000; i++) {
-        measureJSONParsing();
+        setTimeout(measureJSONParsing(),1000*i);
     }
 
     // Save loading times to JSON file
