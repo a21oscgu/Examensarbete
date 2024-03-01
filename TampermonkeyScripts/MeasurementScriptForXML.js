@@ -35,7 +35,7 @@
 
             // Check if all measurements are completed
             if (measurementsCompleted === 1000) {
-                saveToJSON(); // Call saveToJSON function
+                saveToJSON();
             }
 
             return result;

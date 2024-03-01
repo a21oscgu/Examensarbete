@@ -42,7 +42,7 @@
 
                 // Check if all measurements are completed
                 if (measurementsCompleted === 1000) {
-                    saveToJSON(); // Call saveToJSON function
+                    saveToJSON();
                 }
             })
             .catch(error => {
@@ -53,7 +53,7 @@
 
                 // Check if all measurements are completed
                 if (measurementsCompleted === 1000) {
-                    saveToJSON(); // Call saveToJSON function
+                    saveToJSON();
                 }
             });
     }
