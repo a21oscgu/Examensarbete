@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for JSON
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-01
+// @version      2024-03-21
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        https://oscarswebsite.se/Examensarbete/JSONApplication/
@@ -27,12 +27,13 @@
             .then(jsonText => {
                 // Now parse the JSON text
                 var data = JSON.parse(jsonText);
-                var endTime = performance.now(); // Record end time
-                var parsingTime = endTime - startTime; // Calculate parsing time
-                console.log('Time taken to parse JSON data: ' + parsingTime + ' milliseconds');
 
                 // Use the parsed JSON data here
                 displayData(data);
+
+                var endTime = performance.now(); // Record end time
+                var parsingTime = endTime - startTime; // Calculate parsing time
+                console.log('Time taken to parse JSON data: ' + parsingTime + ' milliseconds');
 
                 // Record parsing time
                 loadingTimes.push(parsingTime);
