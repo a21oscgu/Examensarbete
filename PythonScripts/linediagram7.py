@@ -19,7 +19,7 @@ for i, file in enumerate(files):
 
 ax.set_xlabel('Run')
 ax.set_ylabel('Load time')
-ax.set_title('Measurements on 7 articles')
+ax.set_title('Measurements when using 7 articles')
 n = 25
 plt.xticks(range(0, len(xAxis), n), xAxis[::n], rotation=90)
 ax.grid(True)
