@@ -2,11 +2,9 @@ import matplotlib.pyplot as plt
 import json
 from matplotlib.ticker import FuncFormatter
 
-
 # Define a function to convert milliseconds to seconds
 def milliseconds_to_seconds(ms, pos):
     return '{:.0f}'.format(ms / 1000)  # Convert milliseconds to seconds and round to nearest integer
-
 
 # Define the data files
 files = ["data_2000xml.json", "data_2000json.json"]
@@ -34,7 +32,7 @@ for i, file in enumerate(files):
     ax.plot(xAxis, yAxis, color=fileColors[i], label=fileLabels[i])
 
 ax.set_xlabel('Run')
-ax.set_ylabel('Load time (s)')  # Update y-axis label
+ax.set_ylabel('Load time (seconds)')  # Update y-axis label
 ax.set_title('Measurements when using 2000 articles')
 
 # Set the y-axis limits to show a buffer above and below the actual data
@@ -45,8 +43,8 @@ ax.set_ylim(min_y - buffer * (max_y - min_y), max_y + buffer * (max_y - min_y))
 formatter = FuncFormatter(milliseconds_to_seconds)
 ax.yaxis.set_major_formatter(formatter)
 
-n = 25
-plt.xticks(range(0, len(xAxis), n), xAxis[::n], rotation=90)
+n = 100
+plt.xticks(range(0, 1001, n), range(0, 1001, n), rotation=90)
 ax.grid(True)
 ax.legend()
 
