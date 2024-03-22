@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for XML
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-01
+// @version      2024-03-22
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        https://oscarswebsite.se/Examensarbete/XMLApplication/
@@ -21,30 +21,34 @@
     // Function to measure page loading time and log to console
     function measurePageLoad() {
         // Measure time taken for XML parsing
-        var originalXMLParser = window.DOMParser.prototype.parseFromString;
-        window.DOMParser.prototype.parseFromString = function() {
-            var startTime = performance.now();
-            var result = originalXMLParser.apply(this, arguments);
-            var endTime = performance.now();
-            var parsingTime = endTime - startTime;
-            console.log("Time taken to parse XML data: " + parsingTime + " milliseconds");
-            loadingTimes.push(parsingTime);
+        var startTime = performance.now();
+        var customTime = new Date().toISOString(); // Get current time in ISO format
+        var url = `https://oscarswebsite.se/Examensarbete/Data/smalldata.xml?time=${encodeURIComponent(customTime)}`;
 
-            // Increment the counter
-            measurementsCompleted++;
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var endTime = performance.now();
+                var parsingTime = endTime - startTime;
+                console.log("Time taken to parse XML data: " + parsingTime + " milliseconds");
+                loadingTimes.push(parsingTime);
 
-            // Check if all measurements are completed
-            if (measurementsCompleted === 1000) {
-                saveToJSON();
+                // Increment the counter
+                measurementsCompleted++;
+
+                // Check if all measurements are completed
+                if (measurementsCompleted === 1000) {
+                    saveToJSON();
+                }
             }
-
-            return result;
         };
+        xhr.send();
     }
 
     // Measure page load time 1000 times
     for (var i = 0; i < 1000; i++) {
-        setTimeout(measurePageLoad(),1000*i);
+        setTimeout(measurePageLoad, 1000 * i);
     }
 
     // Save loading times to JSON file
