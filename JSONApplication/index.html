@@ -47,22 +47,12 @@
                         const articleContainer = document.createElement('div');
                         articleContainer.classList.add('article-container'); // Add a class for styling
 
-                        const headline = document.createElement('h2');
-                        headline.textContent = articleData.headline;
-
-                        const author = document.createElement('p');
-                        author.textContent = 'By: ' + articleData.author;
-
-                        const publicationDate = document.createElement('p');
-                        publicationDate.textContent = 'Publication date: ' + articleData.publication_date;
-
-                        const content = document.createElement('p');
-                        content.textContent = articleData.content;
-
-                        articleContainer.appendChild(headline);
-                        articleContainer.appendChild(author);
-                        articleContainer.appendChild(publicationDate);
-                        articleContainer.appendChild(content);
+                        articleContainer.innerHTML = `
+                            <h2>${articleData.headline}</h2>
+                            <p>By: ${articleData.author}</p>
+                            <p>Publication date: ${articleData.publication_date}</p>
+                            <p>${articleData.content}</p>
+                        `;
 
                         outputDiv.appendChild(articleContainer);
                     });
