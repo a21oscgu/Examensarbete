@@ -20,7 +20,7 @@
 
     let allText = '';
 
-    // Loop to generate code
+    // Loop to generate article(s)
     let amountOfArticles = 100;
     for(let i=0;i<amountOfArticles;i++){
         console.log("Iteration: " + (i + 1));
