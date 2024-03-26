@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GenerateRandomizedDataScriptForJSON
 // @namespace    http://tampermonkey.net/
-// @version      2024-02-24
+// @version      2024-03-26
 // @description  Generate Randomized Data in JSON
 // @author       You
 // @match        https://oscarswebsite.se/Examensarbete/GenerateRandomizedData/
@@ -21,7 +21,8 @@
     let allText = '';
 
     // Loop to generate code
-    for(let i=0;i<1;i++){
+    let amountOfArticles = 100;
+    for(let i=0;i<amountOfArticles;i++){
         console.log("Iteration: " + (i + 1));
 
         /*Set seed*/
