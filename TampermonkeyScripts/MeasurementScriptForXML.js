@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for XML
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-22
+// @version      2024-03-28
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        https://oscarswebsite.se/Examensarbete/XMLApplication/
@@ -23,7 +23,7 @@
         // Measure time taken for XML parsing
         var startTime = performance.now();
         var customTime = new Date().toISOString(); // Get current time in ISO format
-        var url = `https://oscarswebsite.se/Examensarbete/Data/smalldata.xml?time=${encodeURIComponent(customTime)}`;
+        var url = `https://oscarswebsite.se/Examensarbete/ArticleData/1000data.xml?time=${encodeURIComponent(customTime)}`;
 
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url, true);
