@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         MeasurementScript for JSON
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-28
+// @version      2024-04-04
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
-// @match        https://oscarswebsite.se/Examensarbete/JSONApplication/
+// @match        http://127.0.0.1/Examensarbete/JSONApplication/
 // @grant        GM_download
 // @require      https://raw.githubusercontent.com/eligrey/FileSaver.js/master/src/FileSaver.js
 // ==/UserScript==
@@ -23,7 +23,7 @@
         // Measure time taken for JSON parsing
         var startTime = performance.now(); // Record start time
         var customTime = new Date().toISOString(); // Get current time in ISO format
-        fetch(`https://oscarswebsite.se/Examensarbete/ArticleData/1000data.json?time=${encodeURIComponent(customTime)}`)
+        fetch(`http://127.0.0.1/Examensarbete/ArticleData/1000data.json?time=${encodeURIComponent(customTime)}`)
             .then(response => response.text()) // Get JSON text
             .then(jsonText => {
                 // Now parse the JSON text
