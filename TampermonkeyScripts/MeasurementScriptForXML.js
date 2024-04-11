@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for XML
 // @namespace    http://tampermonkey.net/
-// @version      2024-04-04
+// @version      2024-04-11
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        http://127.0.0.1/Examensarbete/XMLApplication/
@@ -23,12 +23,23 @@
         // Measure time taken for XML parsing
         var startTime = performance.now();
         var customTime = new Date().toISOString(); // Get current time in ISO format
-        var url = `http://127.0.0.1/Examensarbete/ArticleData/1000data.xml?time=${encodeURIComponent(customTime)}`;
+        var xmlUrl = `http://127.0.0.1/Examensarbete/ArticleData/1000data.xml?time=${encodeURIComponent(customTime)}`;
 
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", url, true);
+        xhr.open("GET", xmlUrl, true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) {
+                // Fetch the XML data
+                fetch(xmlUrl)
+                    .then(response => response.text())
+                    .then(xmlText => {
+                        // Parse the XML data
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                        // Use the parsed XML data here
+                        displayData(xmlDoc);
+                    });
+
                 var endTime = performance.now();
                 var parsingTime = endTime - startTime;
                 console.log("Time taken to parse XML data: " + parsingTime + " milliseconds");
