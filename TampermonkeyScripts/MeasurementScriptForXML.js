@@ -35,9 +35,9 @@
                     .then(xmlText => {
                         // Parse the XML data
                         const parser = new DOMParser();
-                        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                        const data = parser.parseFromString(xmlText, 'text/xml');
                         // Use the parsed XML data here
-                        displayData(xmlDoc);
+                        displayData(data);
                     });
 
                 var endTime = performance.now();
