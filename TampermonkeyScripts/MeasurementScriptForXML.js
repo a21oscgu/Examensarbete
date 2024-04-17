@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for XML
 // @namespace    http://tampermonkey.net/
-// @version      2024-04-11
+// @version      2024-04-17
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        http://127.0.0.1/Examensarbete/XMLApplication/
@@ -19,7 +19,7 @@
     var measurementsCompleted = 0;
 
     // Function to measure page loading time and log to console
-    function measurePageLoad() {
+    function measureXMLParsing() {
         // Measure time taken for XML parsing
         var startTime = performance.now();
         var customTime = new Date().toISOString(); // Get current time in ISO format
@@ -59,7 +59,7 @@
 
     // Measure page load time 1000 times
     for (var i = 0; i < 1000; i++) {
-        setTimeout(measurePageLoad, 1000 * i);
+        setTimeout(measureXMLParsing, 1000 * i);
     }
 
     // Save loading times to JSON file
