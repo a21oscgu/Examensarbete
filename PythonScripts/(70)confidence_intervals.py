@@ -9,7 +9,7 @@ def exampleBarChars():
     df = pd.read_json(file, orient='records')
 
     # Define your grouping categories
-    groups = ["100XML(70)", "100JSON(70)"]
+    groups = ["100JSON(70)", "100XML(70)"]
 
     # Width of the bars
     barWidth = 0.3
@@ -37,7 +37,7 @@ def exampleBarChars():
     barsOrder = np.arange(len(groups))
 
     # Colours of bar charts
-    colors = ["#3e8a43", "#968041"]
+    colors = ["#968041", "#3e8a43"]
 
     # Opacity of colours
     Opacity = 0.5
