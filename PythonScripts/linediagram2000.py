@@ -12,7 +12,7 @@ files = ["data_2000xml.json", "data_2000json.json"]
 # Create a figure and axis for the plot
 fig, ax = plt.subplots()
 
-fileColors = ["#3e8a43", "#968041"]
+fileColors = ["#6fff79", "#fA00ff"]
 fileLabels = ["XML", "JSON"]
 
 # Initialize variables to store minimum and maximum y-values
