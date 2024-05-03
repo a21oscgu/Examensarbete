@@ -55,7 +55,7 @@ def exampleBarChars():
     plt.xticks(barsOrder, groups)
     plt.ylabel('Average load time (seconds)')  # Change ylabel to seconds
     plt.xlabel('Data interchange formats')
-    plt.title('Measurements when using 100 articles')
+    plt.title('Measurements when using 100 articles (confidence intervals)')
     plt.legend()
 
     # Set the y-axis limit
