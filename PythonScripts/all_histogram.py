@@ -26,10 +26,10 @@ def exampleBarChars():
     # The x-position order of bars
     barsOrder = np.arange(len(groups) // 2)  # Adjusted for pairs of XML and JSON
 
-    # Colours of bar charts
+    # Colors of bar charts
     colors = ["#fA00ff", "#6fff79"]
 
-    # Opacity of colours
+    # Opacity of colors
     Opacity = 1
 
     # Interval cap size
