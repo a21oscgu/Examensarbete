@@ -9,7 +9,7 @@ def exampleBarChars():
     df = pd.read_json(file, orient='records')
 
     # Define your grouping categories
-    groups = ["100JSON(70)", "100XML(70)"]
+    groups = ["JSON(70)", "XML(70)"]
 
     # Width of the bars
     barWidth = 0.3
@@ -54,7 +54,7 @@ def exampleBarChars():
     # Put a tick on the x-axis under each pair of bars and label it with data size
     plt.xticks(barsOrder, groups)
     plt.ylabel('Average load time (seconds)')  # Change ylabel to seconds
-    plt.xlabel('Number of articles')
+    plt.xlabel('Data interchange formats')
     plt.title('Measurements when using 100 articles')
     plt.legend()
 
