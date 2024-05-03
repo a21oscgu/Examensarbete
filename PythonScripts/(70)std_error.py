@@ -30,7 +30,7 @@ def exampleBarChars():
     colors = ["#968041", "#3e8a43"]
 
     # Opacity of colours
-    Opacity = 0.5
+    Opacity = 1
 
     # Interval cap size
     intervalCapsize = 7
