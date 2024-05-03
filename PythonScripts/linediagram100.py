@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import json
 
 # Define the data files
-files = ["data_100xmlspike352&353.json", "data_100json.json"]
+files = ["data_100xml_withoutspike861.json", "data_100json.json"]
 
 # Create a figure and axis for the plot
 fig, ax = plt.subplots()
