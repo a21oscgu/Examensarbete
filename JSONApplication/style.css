@@ -10,7 +10,7 @@ header{
 #newsheader{
     grid-column: 2;
 }
-#orangecircle{
+#pinkcircle{
     grid-column: 3;
     justify-self: center;
     align-self: center;
@@ -23,7 +23,7 @@ header{
 /*Articles*/
 .article-container {
     grid-column: 2;
-    background-color: #ffd96f;
+    background-color: #fA00ff;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
