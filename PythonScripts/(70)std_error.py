@@ -27,7 +27,7 @@ def exampleBarChars():
     barsOrder = np.arange(len(groups))
 
     # Colours of bar charts
-    colors = ["#968041", "#3e8a43"]
+    colors = ["#fA00ff", "#6fff79"]
 
     # Opacity of colours
     Opacity = 1
