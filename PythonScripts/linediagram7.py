@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import json
 
 # Define the data files
-files = ["data_7xml.json", "data_7json.json"]
+files = ["data_7xml.json", "data_7json_withoutspikes.json"]
 
 # Create a figure and axis for the plot
 fig, ax = plt.subplots()
