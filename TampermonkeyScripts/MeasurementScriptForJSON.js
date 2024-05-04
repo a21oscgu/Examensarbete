@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for JSON
 // @namespace    http://tampermonkey.net/
-// @version      2024-04-04
+// @version      2024-05-05
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        http://127.0.0.1/Examensarbete/JSONApplication/
@@ -17,6 +17,8 @@
 
     // Counter to keep track of completed measurements
     var measurementsCompleted = 0;
+    
+    var amountOfMeasurements = 1000;
 
     // Function to measure page loading time and log to console
     function measureJSONParsing() {
@@ -43,7 +45,7 @@
                 measurementsCompleted++;
 
                 // Check if all measurements are completed
-                if (measurementsCompleted === 1000) {
+                if (measurementsCompleted === amountOfMeasurements) {
                     saveToJSON();
                 }
             })
@@ -54,14 +56,14 @@
                 measurementsCompleted++;
 
                 // Check if all measurements are completed
-                if (measurementsCompleted === 1000) {
+                if (measurementsCompleted === amountOfMeasurements) {
                     saveToJSON();
                 }
             });
     }
 
     // Measure page load time 1000 times
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < amountOfMeasurements; i++) {
         setTimeout(measureJSONParsing, 1000 * i); // setTimeout expects a function reference
     }
 
