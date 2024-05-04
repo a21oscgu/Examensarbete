@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for JSON
 // @namespace    http://tampermonkey.net/
-// @version      2024-05-05
+// @version      2024-05-04
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        http://127.0.0.1/Examensarbete/JSONApplication/
