@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeasurementScript for JSON
 // @namespace    http://tampermonkey.net/
-// @version      2024-05-04
+// @version      2024-05-06
 // @description  Page Loading Speed Measurement Script with JSON Logging
 // @author       You
 // @match        http://127.0.0.1/Examensarbete/JSONApplication/
@@ -17,7 +17,7 @@
 
     // Counter to keep track of completed measurements
     var measurementsCompleted = 0;
-    
+
     var amountOfMeasurements = 1000;
 
     // Function to measure page loading time and log to console
@@ -25,7 +25,7 @@
         // Measure time taken for JSON parsing
         var startTime = performance.now(); // Record start time
         var customTime = new Date().toISOString(); // Get current time in ISO format
-        fetch(`http://127.0.0.1/Examensarbete/ArticleData/1000data.json?time=${encodeURIComponent(customTime)}`)
+        fetch(`http://127.0.0.1/Examensarbete/ArticleData/mixed%20articles/1000data.json?time=${encodeURIComponent(customTime)}`)
             .then(response => response.text()) // Get JSON text
             .then(jsonText => {
                 // Now parse the JSON text
