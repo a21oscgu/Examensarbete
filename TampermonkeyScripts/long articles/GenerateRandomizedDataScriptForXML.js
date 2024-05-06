@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         GenerateRandomizedDataScriptForJSON
+// @name         GenerateRandomizedDataScriptForXML
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-26
-// @description  Generate Randomized Data in JSON
+// @version      2024-05-06
+// @description  Generate Randomized Data in XML
 // @author       You
 // @match        https://127.0.0.1/Examensarbete/GenerateRandomizedData/
 // @grant        GM_getValue
@@ -33,7 +33,7 @@
         Math.setSeed(seed);
         console.log("seed="+ seed);
 
-        /*Code to generate data in form of JSON*/
+        /*Code to generate data in form of XML*/
         var textArea = document.getElementById("output");
 
         //Generate headline
@@ -56,8 +56,10 @@
 
         //Generate content
         var wordCount = 0;
-        var minWordCount = 250;
-        var maxWordCount = 500;
+        // Set a fixed number of words for each article
+        var fixedWordCount = 500;
+        var minWordCount = fixedWordCount;
+        var maxWordCount = fixedWordCount;
         var generatedSentences = [];
 
         while (wordCount < minWordCount) {
@@ -71,12 +73,13 @@
             }
         }
 
-        var allContent = generatedSentences.join(" ");
+        // Join the generated sentences into a single string
+        var allContent = generatedSentences.join("");
 
         // Append the content to the existing content in the textarea
-        allText += '{"headline":"' + headline + '","author": "' + author + '","publication_date": "' + date + '","content": "' + allContent + '"},';
+        allText += '<article><headline>' + headline + '</headline><author>' + author + '</author><publication_date>' + date + '</publication_date><content>' + allContent + '</content></article>';
     }
     GM_setValue("seed", 0);
     // Place accumulated data inside the textarea
-    textArea.value = '{"articles": {"article": [' + allText + ']}}';
+    textArea.value += '<articles>' + allText + '</articles>';
 })();

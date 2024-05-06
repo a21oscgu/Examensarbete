@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         GenerateRandomizedDataScriptForXML
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-26
+// @version      2024-05-06
 // @description  Generate Randomized Data in XML
 // @author       You
-// @match        https://oscarswebsite.se/Examensarbete/GenerateRandomizedData/
+// @match        https://127.0.0.1/Examensarbete/GenerateRandomizedData/
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @require      https://raw.githubusercontent.com/LenaSYS/ContextFreeLib/master/js/contextfreegrammar.js

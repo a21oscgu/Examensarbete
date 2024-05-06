@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GenerateRandomizedDataScriptForJSON
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-26
+// @version      2024-05-06
 // @description  Generate Randomized Data in JSON
 // @author       You
 // @match        https://127.0.0.1/Examensarbete/GenerateRandomizedData/
@@ -56,8 +56,10 @@
 
         //Generate content
         var wordCount = 0;
-        var minWordCount = 250;
-        var maxWordCount = 500;
+        // Set a fixed number of words for each article
+        var fixedWordCount = 500;
+        var minWordCount = fixedWordCount;
+        var maxWordCount = fixedWordCount;
         var generatedSentences = [];
 
         while (wordCount < minWordCount) {
