@@ -21,7 +21,7 @@ def barChars():
     for group in groups:
         group_data = df[group]
         barsData.append(group_data.mean() / 1000)  # Convert from ms to seconds
-        barsInterval.append(group_data.sem() / 1000)  # Convert from ms to seconds
+        barsInterval.append(group_data.std() / 1000)  # Convert from ms to seconds
 
     # The x-position order of bars
     barsOrder = np.arange(len(groups) // 2)  # Adjusted for pairs of XML and JSON
@@ -49,7 +49,7 @@ def barChars():
     plt.xticks(barsOrder, ["7", "100", "1000", "2000"])
     plt.ylabel('Average load time (seconds)')  # Change ylabel to seconds
     plt.xlabel('Number of articles')
-    plt.title('Histogram with all measurements (long, confidence intervals)')
+    plt.title('Histogram with all measurements (long, standard deviation)')
     plt.legend()
 
     # Set the y-axis limit
