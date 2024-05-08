@@ -37,7 +37,7 @@ def lineChart():
     plt.grid(True)
 
     # Set the y-axis limit
-    plt.ylim(0, 0.3)
+    plt.ylim(0, 0.35)
 
     plt.show()
 

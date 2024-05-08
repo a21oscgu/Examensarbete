@@ -53,7 +53,7 @@ def barChars():
     plt.legend()
 
     # Set the y-axis limit
-    plt.ylim(0, 0.3)  # Adjusted for seconds
+    plt.ylim(0, 0.35)  # Adjusted for seconds
 
     plt.show()
 
