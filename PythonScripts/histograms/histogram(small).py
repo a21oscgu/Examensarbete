@@ -39,11 +39,13 @@ def barChars():
     for i in range(0, len(groups), 2):
         plt.bar(barsOrder[i // 2] - barWidth / 2, barsData[i], color=colors[0],
                 edgecolor='black', width=barWidth, yerr=barsInterval[i],
-                capsize=intervalCapsize, alpha=Opacity, label="JSON" if i == 0 else "_nolegend_")
+                capsize=intervalCapsize, alpha=Opacity, label="JSON" if i == 0 else "_nolegend_",
+                zorder=3)  # Setting higher zorder for bars
 
         plt.bar(barsOrder[i // 2] + barWidth / 2, barsData[i + 1], color=colors[1],
                 edgecolor='black', width=barWidth, yerr=barsInterval[i + 1],
-                capsize=intervalCapsize, alpha=Opacity, label="XML" if i == 0 else "_nolegend_")
+                capsize=intervalCapsize, alpha=Opacity, label="XML" if i == 0 else "_nolegend_",
+                zorder=3)  # Setting higher zorder for bars
 
     # Put a tick on the x-axis under each pair of bars and label it with data size
     plt.xticks(barsOrder, ["7", "100", "1000", "2000"])
@@ -54,6 +56,11 @@ def barChars():
 
     # Set the y-axis limit
     plt.ylim(0, 0.35)  # Adjusted for seconds
+
+    # Add grid lines along the y-axis at specific positions
+    y_positions = [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35]  # Specify the positions where you want the grid lines
+    for position in y_positions:
+        plt.axhline(y=position, color='lightgray', linestyle='-', zorder=2)  # Set zorder for grid lines
 
     plt.show()
 
