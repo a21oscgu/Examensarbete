@@ -41,7 +41,7 @@ def linechart():
     x_values = ["7", "100", "1000", "2000"]
 
     # Colors for JSON and XML lines
-    colors = ["#fA00ff", "#6fff79", "#00f", "#ff0", "#000", "#f90"]
+    colors = ["#640066", "#2C6630", "#fA00ff", "#6fff79", "#AF00B2", "#4DB254"]
 
     # Plot lines for JSON and XML data
     plt.plot(x_values, json_lines_data_long, marker='o', color=colors[0], label='JSON_long')
