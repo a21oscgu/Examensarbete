@@ -1,4 +1,6 @@
-# Examensarbete
+# Degree project
+
+Folder information:
  
 * ArticleData - contains articles to parse on the applications.
 * GenerateRandomizedData - an application to generate randomized article-data.
