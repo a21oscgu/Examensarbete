@@ -38,32 +38,29 @@ Understanding the performance differences between JSON and XML is crucial for de
 <p align="left">Figure 2 - Screenshot showcasing the header and the first article on JSONApplication. The data used for the articles were embedded in the JSON data interchange format and were also randomly generated with a seed.</p>
 
 ### Technologies Used 🛠️
-- JSON <img src="images/logos/JSON_vector_logo.svg.png" width="15px">
-- XML <img src="images/logos/XML.png" width="30px">
-- JavaScript <img src="images/logos/JavaScript-logo.png" width="15px">
+- JSON
+- XML
+- JavaScript
 - Parsing
-- Tampermonkey <img src="images/logos/Tampermonkey_logo.svg.png" width="15px">
+- Tampermonkey
 - Local web server (XAMPP)
-- Python <img src="images/logos/Python-logo-notext.svg.png" width="15px"> (used in order to get statistics)
-- HTML <img src="images/logos/HTML5_logo_and_wordmark.svg.png" width="20px">
-- CSS <img src="images/logos/CSS3_logo.svg.png" width="15px">
+- HTML
+- CSS
 
 ## Folder information 📁
  
 * ArticleData - contains articles to parse on the applications.
 * GenerateRandomizedData - an application to generate randomized article-data.
 * JSONApplication - an application to parse the JSON-articles on.
-* PythonScripts - scripts used for statistics.
 * TampermonkeyScripts - scripts used for measuring.
 * XMLApplication - an application to parse the XML-articles on.
 * Images - contains screenshots and logos for the README.md.
-* Measurements - contains measurements.
 
 ### Contributions 🙌
 - Oscar ([a21oscgu](https://github.com/a21oscgu/), [janoscarfilip](https://github.com/janoscarfilip/))
 
 ### License 📜
-- N/A
+- [MIT License](https://github.com/a21oscgu/Examensarbete/blob/main/LICENSE)
 
 ### Contact 📞
 - Add me on Discord: cillian1576
