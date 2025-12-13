@@ -58,6 +58,3 @@ Understanding the performance differences between JSON and XML is crucial for de
 
 ### Contributions 🙌
 - Oscar ([a21oscgu](https://github.com/a21oscgu/), [janoscarfilip](https://github.com/janoscarfilip/))
-
-### License 📜
-- [MIT License](https://github.com/a21oscgu/Examensarbete/blob/main/LICENSE)
