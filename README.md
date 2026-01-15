@@ -55,6 +55,3 @@ Understanding the performance differences between JSON and XML is crucial for de
 * TampermonkeyScripts - scripts used for measuring.
 * XMLApplication - an application to parse the XML-articles on.
 * Images - contains screenshots and logos for the README.md.
-
-### Contributions 🙌
-- Oscar ([a21oscgu](https://github.com/a21oscgu/), [janoscarfilip](https://github.com/janoscarfilip/))
